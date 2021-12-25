@@ -45,7 +45,7 @@ struct MovieCellView: View {
                     .foregroundColor(Color.gray)
             }
             Spacer()
-        }.padding(.horizontal)
+        }
     }
 }
 

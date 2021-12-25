@@ -14,6 +14,7 @@
 		03C8C60327769C9B008FE65F /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8C60227769C9B008FE65F /* Movies.swift */; };
 		03C8C6062777B8EE008FE65F /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8C6052777B8EE008FE65F /* MovieViewModel.swift */; };
 		03C8C6082777BDBC008FE65F /* MovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8C6072777BDBC008FE65F /* MovieCellView.swift */; };
+		03D9C08B2777D66400052DCC /* PopularMoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9C08A2777D66400052DCC /* PopularMoviesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		03C8C60227769C9B008FE65F /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		03C8C6052777B8EE008FE65F /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		03C8C6072777BDBC008FE65F /* MovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellView.swift; sourceTree = "<group>"; };
+		03D9C08A2777D66400052DCC /* PopularMoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				03C8C6072777BDBC008FE65F /* MovieCellView.swift */,
+				03D9C08A2777D66400052DCC /* PopularMoviesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				037DEAA027750E5400FFBE79 /* ContentView.swift in Sources */,
 				037DEA9E27750E5400FFBE79 /* popularMoviesApp.swift in Sources */,
 				03C8C60327769C9B008FE65F /* Movies.swift in Sources */,
+				03D9C08B2777D66400052DCC /* PopularMoviesListView.swift in Sources */,
 				03C8C6082777BDBC008FE65F /* MovieCellView.swift in Sources */,
 				03C8C6062777B8EE008FE65F /* MovieViewModel.swift in Sources */,
 			);
