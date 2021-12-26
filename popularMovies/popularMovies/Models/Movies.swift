@@ -14,7 +14,7 @@ import Foundation
      var total_results:Int
  }
 
- struct Movie: Decodable, Identifiable{
+ struct Movie: Decodable, Encodable, Identifiable{
      var genre_ids: [Int]
      var id: Int
      var overview: String

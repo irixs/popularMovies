@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var favorites = Favorites()
+    
     var body: some View {
         TabView {
-            PopularMoviesListView()
+            PopularMoviesListView(favorites: favorites)
                 .tabItem{
                     Label("Menu",
                           systemImage: "list.and.film")
                 }
-            FavoritesView()
+            FavoritesView(favorites: favorites)
                 .tabItem{
                     Label("Favorites",
                           systemImage: "heart.fill")
