@@ -1,21 +1,21 @@
 //
-//  MovieViewModel.swift
+//  GenreViewModel.swift
 //  popularMovies
 //
-//  Created by iris on 25/12/21.
+//  Created by iris on 26/12/21.
 //
 
 import Foundation
 import Combine
 
-class MovieViewModel: ObservableObject {
+class GenreViewModel: ObservableObject {
     
     
-    @Published var movie: [Movie] = []
+    @Published var genre: [Genre] = []
     private var apiKey = "a710326a9ab261da6dd081d0e5bce81f"
     
     init() {
-        let baseUrl = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
+        let baseUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(apiKey)"
         
         guard let url = URL(string: baseUrl) else {return}
         
@@ -23,10 +23,10 @@ class MovieViewModel: ObservableObject {
             guard let data = data else {return}
             
             do {
-                let movies = try JSONDecoder().decode(Movies.self, from: data)
-                
+                let genres = try JSONDecoder().decode(Genres.self, from: data)
+        
                 DispatchQueue.main.async {
-                    self.movie = movies.results
+                    self.genre = genres.genres
                 }
             } catch let error {
                 print("Fail to consume api", error)

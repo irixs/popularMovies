@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0327929C277903D60022BA31 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327929B277903D60022BA31 /* GenreViewModel.swift */; };
+		0327929E277929CD0022BA31 /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327929D277929CD0022BA31 /* VideosViewModel.swift */; };
 		036610D52777E95A00A2B7CE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036610D42777E95A00A2B7CE /* MainView.swift */; };
 		036610D72777E99E00A2B7CE /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036610D62777E99E00A2B7CE /* FavoritesView.swift */; };
 		036610D92777F6BB00A2B7CE /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036610D82777F6BB00A2B7CE /* Favorites.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0327929B277903D60022BA31 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+		0327929D277929CD0022BA31 /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
 		036610D42777E95A00A2B7CE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		036610D62777E99E00A2B7CE /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		036610D82777F6BB00A2B7CE /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				03C8C6052777B8EE008FE65F /* MovieViewModel.swift */,
+				0327929D277929CD0022BA31 /* VideosViewModel.swift */,
+				0327929B277903D60022BA31 /* GenreViewModel.swift */,
 				036610D82777F6BB00A2B7CE /* Favorites.swift */,
 			);
 			path = ViewModels;
@@ -187,9 +193,11 @@
 			files = (
 				036610D92777F6BB00A2B7CE /* Favorites.swift in Sources */,
 				036610DB2777FCC300A2B7CE /* DetailsView.swift in Sources */,
+				0327929E277929CD0022BA31 /* VideosViewModel.swift in Sources */,
 				037DEAA027750E5400FFBE79 /* ContentView.swift in Sources */,
 				036610D52777E95A00A2B7CE /* MainView.swift in Sources */,
 				037DEA9E27750E5400FFBE79 /* popularMoviesApp.swift in Sources */,
+				0327929C277903D60022BA31 /* GenreViewModel.swift in Sources */,
 				03C8C60327769C9B008FE65F /* Movies.swift in Sources */,
 				036610D72777E99E00A2B7CE /* FavoritesView.swift in Sources */,
 				03D9C08B2777D66400052DCC /* PopularMoviesListView.swift in Sources */,

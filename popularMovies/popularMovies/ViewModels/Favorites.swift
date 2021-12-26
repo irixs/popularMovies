@@ -45,7 +45,7 @@ class Favorites: ObservableObject {
     func save() {
         let encoder = PropertyListEncoder()
                 if let encoded = try? encoder.encode(self.favMovie) {
-                    self.defaults.set(encoded, forKey: "Recipes")
+                    self.defaults.set(encoded, forKey: "Movies")
                 }
                 self.defaults.set(Array(self.favorites), forKey: "Favorites")
                 defaults.synchronize()

@@ -22,3 +22,12 @@ import Foundation
      var release_date: String
      var title: String
  }
+
+struct Genres: Decodable{
+    var genres: [Genre]
+}
+
+struct Genre: Decodable, Identifiable{
+    var id: Int
+    var name: String
+}
