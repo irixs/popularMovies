@@ -10,7 +10,6 @@ import Combine
 
 class GenreViewModel: ObservableObject {
     
-    
     @Published var genre: [Genre] = []
     private var apiKey = "a710326a9ab261da6dd081d0e5bce81f"
     

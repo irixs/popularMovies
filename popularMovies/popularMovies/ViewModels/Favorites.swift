@@ -7,8 +7,6 @@
 
 import Foundation
 
-//import SwiftUI
-
 class Favorites: ObservableObject {
     
     @Published var favMovie: [Movie]
