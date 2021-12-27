@@ -29,7 +29,7 @@ class GenreViewModel: ObservableObject {
                     self.genre = genres.genres
                 }
             } catch let error {
-                print("Fail to consume api", error)
+                print("Fail to consume genres api", error)
             }
             
         }.resume()

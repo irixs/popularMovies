@@ -31,3 +31,13 @@ struct Genre: Decodable, Identifiable{
     var id: Int
     var name: String
 }
+
+struct Videos: Decodable{
+    var results: [Video]
+}
+
+struct Video: Decodable, Identifiable{
+    var key: String
+    var site: String
+    var id: String
+}

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct DetailsView: View {
-    @StateObject var genres = GenreViewModel()
-    @ObservedObject var favorites: Favorites
     
+    @StateObject var genres = GenreViewModel()
+    @StateObject var videos = VideosViewModel()
+    @ObservedObject var favorites: Favorites
     let movie: Movie
     
     var body: some View {
@@ -70,11 +71,29 @@ struct DetailsView: View {
                         }
                     }
                 }
+                if(videos.charged) {
+                    var _ = print(videos.video.count)
+                    AsyncImage(url: URL(string: "https://img.youtube.com/vi/\(videos.video[0].key)/0.jpg")) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        ZStack{
+                            Color.gray.opacity(0.1)
+                            Image(systemName: "photo")
+                                .foregroundColor(Color.gray.opacity(0.5))
+                                .font(.system(size: 80))
+                        }
+                    }
+                    .cornerRadius(20)
+                    .frame(width: 380, height: 230)
+                }
+                           
                 Spacer()
             }
-            
         }.onAppear{
-            
+            videos.idMovie = movie.id
+            videos.fetchVideos()
         }
     }
 }

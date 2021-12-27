@@ -29,7 +29,7 @@ class MovieViewModel: ObservableObject {
                     self.movie = movies.results
                 }
             } catch let error {
-                print("Fail to consume api", error)
+                print("Fail to consume popular movies api", error)
             }
             
         }.resume()
