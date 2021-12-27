@@ -7,21 +7,21 @@
 
 import Foundation
 
- struct Movies: Decodable{
-     var page: Int
-     var results: [Movie]
-     var total_pages: Int
-     var total_results:Int
- }
+struct Movies: Decodable{
+    var page: Int
+    var results: [Movie]
+    var total_pages: Int
+    var total_results:Int
+}
 
- struct Movie: Decodable, Encodable, Identifiable{
-     var genre_ids: [Int]
-     var id: Int
-     var overview: String
-     var poster_path: String
-     var release_date: String
-     var title: String
- }
+struct Movie: Decodable, Encodable, Identifiable{
+    var genre_ids: [Int]
+    var id: Int
+    var overview: String
+    var poster_path: String
+    var release_date: String
+    var title: String
+}
 
 struct Genres: Decodable{
     var genres: [Genre]

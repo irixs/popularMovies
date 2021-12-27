@@ -15,82 +15,106 @@ struct DetailsView: View {
     let movie: Movie
     
     var body: some View {
+        
         ScrollView{
-            VStack(alignment: .center) {
-                
-                
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path)")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } placeholder: {
-                    ZStack{
-                        Color.gray.opacity(0.1)
-                        Image(systemName: "photo")
-                            .foregroundColor(Color.gray.opacity(0.5))
-                            .font(.system(size: 80))
-                    }
-                }
-                .cornerRadius(20)
-                .frame(width: 380, height: 230)
+            
+            VStack(alignment: .leading){
                 
                 Text(movie.title)
                     .font(.title)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(4)
-                    .padding(.horizontal)
+                    .fontWeight(.medium)
                 
                 Text(String(movie.release_date.prefix(4)))
                     .font(.caption)
                     .foregroundColor(Color.gray)
-                    .padding(.bottom)
                 
-                Button(action: {
-                    if self.favorites.contains(self.movie) {
-                        self.favorites.remove(self.movie)
-                    }
-                    else {
-                        self.favorites.add(self.movie)
-                    }
-                    
-                }, label: {
-                    Image(systemName: self.favorites.contains(movie) ? "heart.fill" : "heart")
-                        .font(Font.system(size: 20, weight: .semibold))
-                        .foregroundColor(Color.red)
-                })
-                
-                Text(movie.overview)
-                    .font(.callout)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .bottom, .trailing], 20)
-                
-                ForEach(movie.genre_ids.indices) { genre_id in
-                    ForEach(genres.genre) { genre in
-                        if (movie.genre_ids[genre_id] == genre.id){
-                            Text(genre.name)
-                        }
-                    }
-                }
-                if(videos.charged) {
-                    var _ = print(videos.video.count)
-                    AsyncImage(url: URL(string: "https://img.youtube.com/vi/\(videos.video[0].key)/0.jpg")) { image in
-                        image
+                HStack {
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path)")) { image in image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                     } placeholder: {
                         ZStack{
                             Color.gray.opacity(0.1)
                             Image(systemName: "photo")
                                 .foregroundColor(Color.gray.opacity(0.5))
-                                .font(.system(size: 80))
+                                .font(.system(size: 40))
                         }
                     }
-                    .cornerRadius(20)
-                    .frame(width: 380, height: 230)
+                    .frame(width: 100, height: 150)
+                    .cornerRadius(10)
+                    
+                    VStack(alignment: .leading) {
+                        
+                        ForEach(movie.genre_ids.indices) { genre_id in
+                            ForEach(genres.genre) { genre in
+                                if (movie.genre_ids[genre_id] == genre.id){
+                                    Text(genre.name)
+                                        .font(.footnote)
+                                        .padding(.vertical, 0.5)
+                                        .padding(.horizontal, 10)
+                                        .background(Color.yellow.opacity(0.3))
+                                        .cornerRadius(10)
+                                }
+                            }
+                        }
+                        
+                        Button(action: {
+                            if self.favorites.contains(self.movie) {
+                                self.favorites.remove(self.movie)
+                            }
+                            else {
+                                self.favorites.add(self.movie)
+                            }
+                            
+                        }, label: {
+                            Image(systemName: self.favorites.contains(movie) ? "heart.fill" : "heart")
+                                .padding(.vertical, 1.0)
+                                .font(Font.system(size: 20, weight: .semibold))
+                                .foregroundColor(Color.red)
+                        })
+                        
+                        Spacer()
+                    }
                 }
-                           
+                
+                Text(movie.overview)
+                    .font(.callout)
+                    .multilineTextAlignment(.leading)
+                    .padding(.vertical)
+                
+                Text("Related Videos")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                
+                ScrollView(.horizontal){
+                    HStack{
+                        if(videos.charged) {
+                            ForEach(videos.video.indices) { video in
+                                Link(destination: URL(string: "https://www.youtube.com/watch?v=\(videos.video[video].key)")!) {
+                                    ZStack {
+                                        AsyncImage(url: URL(string: "https://img.youtube.com/vi/\(videos.video[video].key)/0.jpg")) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+                                                Color.gray.opacity(0.1)
+                                        }
+                                        .frame(width: 150, height: 100)
+                                        .cornerRadius(10)
+                                        
+                                        Image(systemName: "play.circle")
+                                            .foregroundColor(Color.white.opacity(0.7))
+                                            .font(.system(size: 70))
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
                 Spacer()
-            }
+            }.padding(.horizontal)
+            
         }.onAppear{
             videos.idMovie = movie.id
             videos.fetchVideos()
