@@ -10,11 +10,12 @@ import SwiftUI
 struct FavoritesView: View {
     @ObservedObject var favorites: Favorites
     @StateObject var movies = MovieViewModel()
+    @State private var searchString = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(movies.movie) { movie in
+                ForEach(searchString == "" ? movies.movie : movies.movie.filter { $0.title.contains(searchString)}) { movie in
                     if self.favorites.contains(movie){
                         NavigationLink(destination:
                                         DetailsView(favorites: favorites, movie: Movie(genre_ids: movie.genre_ids,
@@ -32,7 +33,8 @@ struct FavoritesView: View {
                         })
                     }
                 }
-            }.navigationBarTitle(Text("Favorites"))
+            }.searchable(text: $searchString)
+            .navigationBarTitle(Text("Favorites"))
         }
     }
 }
